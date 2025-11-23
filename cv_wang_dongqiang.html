@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>王东强 | Dongqiang Wang - CV</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    /* ========= Base (match lab style, but self-contained) ========= */
+    :root{
+      --bg: #f3f4f6;
+      --white:#ffffff;
+      --text:#111827;
+      --muted:#4b5563;
+      --muted-2:#6b7280;
+      --line:#e5e7eb;
+      --shadow: 0 4px 10px rgba(15, 23, 42, 0.06);
+      --shadow-strong: 0 6px 16px rgba(15, 23, 42, 0.08);
+      --radius: 8px;
+      --accent:#111827;
+      --link:#2563eb;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial,
+                   "PingFang SC","Hiragino Sans GB","Microsoft YaHei", sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.75;
+    }
+    a{color:var(--link); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    .page{
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px 16px 56px;
+    }
+
+    /* top minimal header (independent page but lab-like) */
+    .topbar{
+      background: var(--white);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      padding: 12px 14px;
+      display:flex; align-items:center; justify-content:space-between;
+      margin-bottom: 14px;
+    }
+    .topbar-left{
+      display:flex; align-items:center; gap:10px;
+      font-weight:700; letter-spacing:.2px;
+    }
+    .topbar-mark{
+      width:34px; height:34px; border-radius:6px;
+      background:#111827; color:#fff; font-weight:800;
+      display:grid; place-items:center; font-size:14px;
+    }
+    .topbar-sub{
+      font-size:12px; color:var(--muted-2); font-weight:500;
+    }
+
+    /* language switch */
+    .lang-switch{
+      display:flex; gap:8px;
+    }
+    .lang-switch button{
+      border:1px solid var(--line);
+      background:#fff;
+      color:var(--muted);
+      padding:6px 12px;
+      font-size:13px;
+      border-radius:999px;
+      cursor:pointer;
+      transition:all .15s ease;
+      box-shadow:0 2px 6px rgba(15,23,42,.04);
+    }
+    .lang-switch button:hover{ background:#f3f4f6; color:var(--text);}
+    .lang-switch button.active{
+      background:#111827; color:#fff; border-color:#111827;
+    }
+
+    /* main profile layout */
+    .profile-wrapper{
+      display:flex; flex-wrap:wrap; gap:32px; align-items:flex-start;
+      margin-top: 10px;
+    }
+    .profile-left{
+      flex:0 0 260px; max-width:260px;
+    }
+    .profile-photo{
+      width:100%; border-radius: var(--radius);
+      display:block; object-fit:cover;
+      box-shadow: var(--shadow-strong);
+      background:#eef2f7;
+    }
+    .profile-basic-card{
+      margin-top:16px; background:var(--white);
+      border-radius:var(--radius); padding:16px 18px;
+      box-shadow:var(--shadow); font-size:14px; line-height:1.6;
+    }
+    .profile-basic-card h3{ margin:0 0 4px; font-size:20px;}
+    .profile-basic-card p{ margin:2px 0; color:var(--muted); }
+
+    .profile-right{
+      flex:1 1 0; min-width:280px;
+    }
+    .profile-head-table{
+      width:100%; border-collapse:collapse; background:var(--white);
+      box-shadow:var(--shadow); margin-bottom:14px; font-size:14px;
+    }
+    .profile-head-table th, .profile-head-table td{
+      border:1px solid var(--line); padding:8px 10px;
+    }
+    .profile-head-table th{
+      width:130px; text-align:right; background:#f9fafb;
+      color:#374151; white-space:nowrap;
+    }
+    .profile-head-table td{ color:#111827; }
+
+    /* CV sections (single page) */
+    .cv-section{
+      background:var(--white);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:14px 16px;
+      margin-bottom:14px;
+      font-size:14px; color:#374151;
+    }
+    .cv-section h3{
+      margin:0 0 8px; font-size:16px; color:#111827;
+      border-left:4px solid #111827; padding-left:8px;
+    }
+    .cv-section ul, .cv-section ol{
+      margin:0; padding-left:20px;
+    }
+    .cv-section li{ margin-bottom:6px; }
+
+    .pub-item{
+      margin-bottom:8px; padding-bottom:8px;
+      border-bottom:1px dashed var(--line);
+    }
+    .pub-item:last-child{ border-bottom:none; padding-bottom:0; margin-bottom:0; }
+
+    .small-note{ font-size:12px; color:var(--muted-2); margin-top:6px;}
+
+    footer{
+      text-align:center; color:var(--muted-2);
+      font-size:12px; margin-top:8px;
+    }
+
+    /* language visibility */
+    [data-lang]{ display:none; }
+    [data-lang].active{ display:block; }
+
+    @media (max-width: 768px){
+      .profile-left{ flex:1 1 100%; max-width:100%; }
+      .profile-right{ flex:1 1 100%; }
+      .profile-head-table th{ width:35%; }
+      .topbar{ flex-direction:column; gap:8px; align-items:flex-start;}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <!-- topbar -->
+    <div class="topbar">
+      <div class="topbar-left">
+        <div class="topbar-mark">CV</div>
+        <div>
+          <div data-lang="zh" class="active">王东强 · 个人简历</div>
+          <div data-lang="en">Dongqiang Wang · Curriculum Vitae</div>
+          <div class="topbar-sub" data-lang="zh" class="active">Single-page Academic CV</div>
+          <div class="topbar-sub" data-lang="en">Single-page Academic CV</div>
+        </div>
+      </div>
+      <div class="lang-switch">
+        <button class="active" data-set-lang="zh">中文</button>
+        <button data-set-lang="en">English</button>
+      </div>
+    </div>
+
+    <!-- title block -->
+    <div class="cv-section" style="margin-bottom:10px;">
+      <h2 style="margin:0;font-size:22px;color:#111827;">
+        Dongqiang Wang / 王东强
+      </h2>
+      <p style="margin:6px 0 0;color:#6b7280;">
+        <span data-lang="zh" class="active">博士后 · 吉林大学人兽共患病研究所 / 人畜共患传染病重症诊治全国重点实验室</span>
+        <span data-lang="en">Postdoctoral Fellow · Institute of Zoonosis, Jilin University / National Key Laboratory for Severe Zoonotic Infectious Diseases</span>
+      </p>
+    </div>
+
+    <div class="profile-wrapper">
+
+      <!-- LEFT -->
+      <div class="profile-left">
+        <!-- 头像：把 src 换为你的图片路径 -->
+        <img src="images/wang_dongqiang.jpg" alt="Dongqiang Wang" class="profile-photo"
+             onerror="this.style.display='none'; this.insertAdjacentHTML('afterend','<div class=&quot;profile-photo&quot; style=&quot;height:320px;display:grid;place-items:center;color:#9ca3af;font-weight:700;&quot;>Photo Here</div>')" />
+
+        <div class="profile-basic-card" data-lang="zh" class="active">
+          <h3>王东强 博士</h3>
+          <p>博士后</p>
+          <p>
+            兽医公共卫生 · 隐孢子虫病 · 分子寄生虫学 · 药物靶点与宿主–寄生虫互作
+          </p>
+          <p>
+            邮箱：<br />
+            <a href="mailto:wdq19@mails.jlu.edu.cn">wdq19@mails.jlu.edu.cn</a><br />
+            <a href="mailto:wangdq909@163.com">wangdq909@163.com</a><br />
+            <a href="mailto:wdq909@jlu.edu.cn">wdq909@jlu.edu.cn</a>
+          </p>
+          <p>
+            电话：<br />
+            188-4412-0994<br />
+            198-4394-6640
+          </p>
+        </div>
+
+        <div class="profile-basic-card" data-lang="en">
+          <h3>Dongqiang Wang, Ph.D.</h3>
+          <p>Postdoctoral Fellow</p>
+          <p>
+            Veterinary public health · Cryptosporidiosis · Molecular parasitology ·
+            Drug targets and host–parasite interactions
+          </p>
+          <p>
+            Email:<br />
+            <a href="mailto:wdq19@mails.jlu.edu.cn">wdq19@mails.jlu.edu.cn</a><br />
+            <a href="mailto:wangdq909@163.com">wangdq909@163.com</a><br />
+            <a href="mailto:wdq909@jlu.edu.cn">wdq909@jlu.edu.cn</a>
+          </p>
+          <p>
+            Mobile:<br />
+            +86-188-4412-0994<br />
+            +86-198-4394-6640
+          </p>
+        </div>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="profile-right">
+
+        <!-- Info table -->
+        <table class="profile-head-table" data-lang="zh" class="active">
+          <tbody>
+            <tr><th>姓名：</th><td>王东强</td><th>性别：</th><td>男</td></tr>
+            <tr><th>出生年月：</th><td>1991.09</td><th>籍贯：</th><td>甘肃省平凉市</td></tr>
+            <tr><th>学科方向：</th><td>兽医公共卫生</td><th>政治面貌：</th><td>中共党员</td></tr>
+            <tr>
+              <th>现工作单位：</th>
+              <td colspan="3">
+                吉林大学人兽共患病研究所；<br />
+                人畜共患传染病重症诊治全国重点实验室。
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table class="profile-head-table" data-lang="en">
+          <tbody>
+            <tr><th>Name:</th><td>Dongqiang Wang</td><th>Gender:</th><td>Male</td></tr>
+            <tr><th>Date of Birth:</th><td>Sep 1991</td><th>Origin:</th><td>Pingliang, Gansu, China</td></tr>
+            <tr><th>Discipline:</th><td>Veterinary Public Health</td><th>Political Status:</th><td>CPC Member</td></tr>
+            <tr>
+              <th>Affiliation:</th>
+              <td colspan="3">
+                Institute of Zoonosis, Jilin University;<br />
+                National Key Laboratory for Severe Zoonotic Infectious Diseases.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Profile -->
+        <div class="cv-section" data-lang="zh" class="active">
+          <h3>个人简介与研究兴趣</h3>
+          <p>
+            聚焦人兽共患隐孢子虫病及顶复门寄生虫的生活史与致病机制，主要研究微线体蛋白胞内运输/分泌、
+            宿主-寄生虫互作、分子诊断与卵囊活性定量检测，以及能量代谢与潜在药物靶点。
+          </p>
+        </div>
+
+        <div class="cv-section" data-lang="en">
+          <h3>Profile & Research Interests</h3>
+          <p>
+            Focus on zoonotic cryptosporidiosis and apicomplexan parasites, including microneme protein trafficking/secretion,
+            host–parasite interactions, molecular diagnostics and quantitative oocyst viability assays,
+            parasite energy metabolism and novel drug targets.
+          </p>
+        </div>
+
+        <!-- Contributions -->
+        <div class="cv-section" data-lang="zh" class="active">
+          <h3>主要学术贡献</h3>
+          <ol>
+            <li>
+              在顶复门寄生虫中首次发现隐孢子虫微线体蛋白 <b>CpTSP4</b> 通过微管/驱动蛋白运输并分泌，
+              并揭示其与宿主细胞互作机制（mBio, 2024）。
+            </li>
+            <li>
+              在隐孢子虫领域首次建立 <b>TaqMan qRT-PCR/qPCR</b> 卵囊活性定量检测方法，
+              实现 <em>C. parvum</em> 与 <em>C. hominis</em> 卵囊存活力评估（Water Research, 2024）。
+            </li>
+          </ol>
+        </div>
+
+        <div class="cv-section" data-lang="en">
+          <h3>Major Academic Contributions</h3>
+          <ol>
+            <li>
+              First identified that Cryptosporidium micronemal protein <b>CpTSP4</b> is transported and secreted via
+              microtubule/kinesin-dependent trafficking and mediates host-cell interaction (mBio, 2024).
+            </li>
+            <li>
+              Established a novel <b>TaqMan qRT-PCR/qPCR</b> assay enabling quantitative viability assessment of
+              <em>C. parvum</em> and <em>C. hominis</em> oocysts (Water Research, 2024).
+            </li>
+          </ol>
+        </div>
+
+        <!-- Education -->
+        <div class="cv-section" data-lang="zh" class="active">
+          <h3>教育背景</h3>
+          <ul>
+            <li><b>2012.09 – 2016.06</b> 吉林农业科技学院 动物医学学院，本科，动植物检疫，理学学士。</li>
+            <li><b>2016.09 – 2019.06</b> 吉林大学 动物医学院/人兽共患病研究所，硕士，兽医公共卫生，导师：尹继刚教授。<br/>
+              论文：微小隐孢子虫TSP7蛋白质通过硫化肝素介导子孢子对HCT-8细胞的黏附
+            </li>
+            <li><b>2019.09 – 2024.06</b> 吉林大学 动物医学院/人兽共患病研究所，博士，兽医公共卫生，导师：朱冠教授。<br/>
+              论文：微小隐孢子虫微线体蛋白CpTSP4的胞内运输、分泌及其与宿主细胞结合的分子机制研究
+            </li>
+            <li><b>2024.07 – 至今</b> 吉林大学人兽共患病研究所 博士后。</li>
+          </ul>
+        </div>
+
+        <div class="cv-section" data-lang="en">
+          <h3>Education</h3>
+          <ul>
+            <li><b>09/2012 – 06/2016</b> B.Sc., Jilin Agricultural Science and Technology College. Major: Animal & Plant Quarantine.</li>
+            <li><b>09/2016 – 06/2019</b> M.Sc., Veterinary Public Health, Institute of Zoonosis, Jilin University. Supervisor: Prof. Jigan Yin.<br/>
+              Thesis: Heparan sulfate–mediated adhesion of C. parvum TSP7 protein/sporozoites to HCT-8 cells.
+            </li>
+            <li><b>09/2019 – 06/2024</b> Ph.D., Veterinary Public Health, Institute of Zoonosis, Jilin University. Supervisor: Prof. Guan Zhu.<br/>
+              Thesis: Intracellular trafficking, secretion and host-cell binding mechanisms of micronemal protein CpTSP4 in C. parvum.
+            </li>
+            <li><b>07/2024 – Present</b> Postdoctoral Fellow, Institute of Zoonosis, Jilin University.</li>
+          </ul>
+        </div>
+
+        <!-- Publications -->
+        <div class="cv-section" data-lang="zh" class="active">
+          <h3>期刊论文</h3>
+
+          <p><b>第一作者（4篇）</b></p>
+          <div class="pub-item">
+            Wang D, Jiang P, Yang X, et al. Novel strategy to quantify the viability of oocysts of
+            <em>Cryptosporidium parvum</em> and <em>C. hominis</em>… <em>Water Research</em>. 2024;258:121788.
+          </div>
+          <div class="pub-item">
+            Wang D, Zhu G. Unlocking the mystery of the feeder organelle and versatile energy metabolism in
+            <em>Cryptosporidium parvum</em>. <em>Trends in Parasitology</em>. 2024;40(4):280–282.
+          </div>
+          <div class="pub-item">
+            Wang D, Jiang P, Wu X, et al. Requirement of microtubules for secretion of a micronemal protein CpTSP4…
+            <em>mBio</em>. 2024;15(2):e0315823.
+          </div>
+          <div class="pub-item">
+            Wang D, Wang C, Zhu G. Genomic reconstruction and features of glycosylation pathways in the apicomplexan
+            <em>Cryptosporidium</em> parasites. <em>Frontiers in Molecular Biosciences</em>. 2022;9:1051072.
+          </div>
+
+          <p style="margin-top:10px;"><b>共同作者（11篇）</b></p>
+          <div class="pub-item">Wang C, Wang D, Nie J, Gao X, Yin J, Zhu G. <em>Microorganisms</em>. 2021;9(9):1921.</div>
+          <div class="pub-item">Yang B, Wang D, Liu M, et al. <em>J Antimicrob Chemother</em>. 2021;77(1):124–134.</div>
+          <div class="pub-item">Chen H, Wang D, Wang C, et al. <em>IJP: Drugs and Drug Resistance</em>. 2024;25:100551.</div>
+          <div class="pub-item">Li M, Yin J, Wang D, et al. <em>PLOS Pathogens</em>. 2025;21(7):e1012881.</div>
+          <div class="pub-item">Liu M, Zhang D, Wang D, et al. <em>J Infect Dis</em>. 2023;jiad243.</div>
+          <div class="pub-item">Nie J, Yin J, Wang D, et al. <em>Pathogens</em>. 2021;11(1):21.</div>
+          <div class="pub-item">Li X, Yin J, Wang D, et al. <em>Parasites & Vectors</em>. 2022;15(1):170.</div>
+          <div class="pub-item">Gao X, Yin J, Wang D, et al. <em>Front Vet Sci</em>. 2021;8:778560.</div>
+          <div class="pub-item">Yang B, Yan Y, Wang D, et al. <em>PLOS NTD</em>. 2023;17(3):e0011217.</div>
+          <div class="pub-item">Zhang T, Gao X, Wang D, et al. <em>Microorganisms</em>. 2021;9(5):1015.</div>
+          <div class="pub-item">Zhai Z, Jiang P, Wang D, et al. <em>IJP: Drugs and Drug Resistance</em>. 2025;28:100601.</div>
+
+          <p style="margin-top:10px;"><b>中文论文（2篇）</b></p>
+          <div class="pub-item">
+            王东强, 张天宇, 焦新, 等. 微小隐孢子虫Ⅰ型跨膜蛋白Cgd7_1430的亚细胞定位及其HCT-8细胞黏附特性研究.
+            中国病原生物学杂志, 2019.
+          </div>
+          <div class="pub-item">
+            王东强, 张天宇, 高鑫, 等. 微小隐孢子虫TSP7蛋白质通过硫化肝素介导子孢子对HCT-8细胞的黏附.
+            兽医寄生虫学分会青年科学家论坛摘要集, 2019.
+          </div>
+        </div>
+
+        <div class="cv-section" data-lang="en">
+          <h3>Publications</h3>
+
+          <p><b>First-author papers (4)</b></p>
+          <div class="pub-item">
+            Wang D, Jiang P, Yang X, et al. Novel strategy to quantify the viability of oocysts of
+            <em>Cryptosporidium parvum</em> and <em>C. hominis</em>… <em>Water Research</em>. 2024;258:121788.
+          </div>
+          <div class="pub-item">
+            Wang D, Zhu G. Unlocking the mystery of the feeder organelle and versatile energy metabolism in
+            <em>Cryptosporidium parvum</em>. <em>Trends in Parasitology</em>. 2024;40(4):280–282.
+          </div>
+          <div class="pub-item">
+            Wang D, Jiang P, Wu X, et al. Requirement of microtubules for secretion of a micronemal protein CpTSP4…
+            <em>mBio</em>. 2024;15(2):e0315823.
+          </div>
+          <div class="pub-item">
+            Wang D, Wang C, Zhu G. Genomic reconstruction and features of glycosylation pathways in the apicomplexan
+            <em>Cryptosporidium</em> parasites. <em>Frontiers in Molecular Biosciences</em>. 2022;9:1051072.
+          </div>
+
+          <p style="margin-top:10px;"><b>Co-authored papers (11)</b></p>
+          <div class="pub-item">Wang C, Wang D, Nie J, Gao X, Yin J, Zhu G. <em>Microorganisms</em>. 2021;9(9):1921.</div>
+          <div class="pub-item">Yang B, Wang D, Liu M, et al. <em>J Antimicrob Chemother</em>. 2021;77(1):124–134.</div>
+          <div class="pub-item">Chen H, Wang D, Wang C, et al. <em>IJP: Drugs and Drug Resistance</em>. 2024;25:100551.</div>
+          <div class="pub-item">Li M, Yin J, Wang D, et al. <em>PLOS Pathogens</em>. 2025;21(7):e1012881.</div>
+          <div class="pub-item">Liu M, Zhang D, Wang D, et al. <em>Journal of Infectious Diseases</em>. 2023;jiad243.</div>
+          <div class="pub-item">Nie J, Yin J, Wang D, et al. <em>Pathogens</em>. 2021;11(1):21.</div>
+          <div class="pub-item">Li X, Yin J, Wang D, et al. <em>Parasites & Vectors</em>. 2022;15(1):170.</div>
+          <div class="pub-item">Gao X, Yin J, Wang D, et al. <em>Frontiers in Veterinary Science</em>. 2021;8:778560.</div>
+          <div class="pub-item">Yang B, Yan Y, Wang D, et al. <em>PLOS Neglected Tropical Diseases</em>. 2023;17(3):e0011217.</div>
+          <div class="pub-item">Zhang T, Gao X, Wang D, et al. <em>Microorganisms</em>. 2021;9(5):1015.</div>
+          <div class="pub-item">Zhai Z, Jiang P, Wang D, et al. <em>IJP: Drugs and Drug Resistance</em>. 2025;28:100601.</div>
+
+          <p style="margin-top:10px;"><b>Chinese publications (2)</b></p>
+          <div class="pub-item">
+            Wang D, Zhang T, Jiao X, et al. Subcellular localization of type I transmembrane protein Cgd7_1430 of
+            <em>C. parvum</em> and adhesion to HCT-8 cells. <em>Chinese Journal of Pathogen Biology</em>. 2019.
+          </div>
+          <div class="pub-item">
+            Wang D, Zhang T, Gao X, et al. Heparan-sulfate-mediated adhesion of <em>C. parvum</em> TSP7 protein to HCT-8 cells.
+            Abstract, Young Scientists Forum, 2019.
+          </div>
+        </div>
+
+        <!-- Patent & Book -->
+        <div class="cv-section" data-lang="zh" class="active">
+          <h3>专利与编著</h3>
+          <ul>
+            <li>
+              尹继刚，王东强，张天宇，焦新，邵清延. 2018.
+              一种微小隐孢子虫检测用 TSP7 多肽序列及其应用：中国，201810519141.2（2018-11-06）。
+            </li>
+            <li>
+              Wang C, Wang D, Zhang H, Zhu G. Phenotypic High-Throughput Screening and Drug Efficacy Test Against the Growth of
+              <em>Cryptosporidium parvum</em> In Vitro by qRT-PCR. <em>Methods in Molecular Biology</em>, 2026.
+            </li>
+          </ul>
+        </div>
+
+        <div class="cv-section" data-lang="en">
+          <h3>Patent & Book Chapter</h3>
+          <ul>
+            <li>
+              Yin J, Wang D, Zhang T, Jiao X, Shao Q. 2018.
+              TSP7 peptide sequence for detection of <em>C. parvum</em> and its applications. China Patent No. 201810519141.2.
+            </li>
+            <li>
+              Wang C, Wang D, Zhang H, Zhu G. Phenotypic High-Throughput Screening and Drug Efficacy Test Against the Growth of
+              <em>Cryptosporidium parvum</em> In Vitro by qRT-PCR. <em>Methods in Molecular Biology</em>, 2026.
+            </li>
+          </ul>
+        </div>
+
+        <!-- Projects -->
+        <div class="cv-section" data-lang="zh" class="active">
+          <h3>科研项目</h3>
+          <ol>
+            <li><b>吉林大学博士研究生交叉学科科研资助计划</b>（2万，101832020DJX094）— 主持</li>
+            <li><b>弓形虫感染溯源及风险定量—TOXOSOURCES</b>（科技部政府间国际科技创新合作项目，300万，2022YFE0114400）— 参与</li>
+            <li><b>Exploring bacterial-type LDH as novel drug target in Cryptosporidium</b>（NSFC外国学者基金，160万，32250710141）— 参与</li>
+            <li><b>动物重要寄生虫的生长发育与寄生机制</b>（国家重点研发计划，2022YFD1800200）— 参与</li>
+            <li><b>国家自然科学基金青年基金</b>（30万）— 主持</li>
+          </ol>
+        </div>
+
+        <div class="cv-section" data-lang="en">
+          <h3>Research Projects</h3>
+          <ol>
+            <li><b>Interdisciplinary Research Support Program for Doctoral Students, JLU</b> (CNY 20k, 101832020DJX094) — PI</li>
+            <li><b>TOXOSOURCES</b> (MOST intergovernmental project, CNY 3.0M, 2022YFE0114400) — Participant</li>
+            <li><b>Bacterial-type LDH as drug target in Cryptosporidium</b> (NSFC Foreign Scientist Grant, CNY 1.6M, 32250710141) — Participant</li>
+            <li><b>Growth & parasitic mechanisms of important animal parasites</b> (National Key R&D Program, 2022YFD1800200) — Participant</li>
+            <li><b>NSFC Youth Fund</b> (CNY 300k) — PI</li>
+          </ol>
+        </div>
+
+      </div><!-- /profile-right -->
+    </div><!-- /profile-wrapper -->
+
+    <footer>
+      © <span id="year"></span> Dongqiang Wang · Single-page CV
+    </footer>
+  </div>
+
+<script>
+  // year
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // language switching
+  const buttons = document.querySelectorAll("[data-set-lang]");
+  const blocks = document.querySelectorAll("[data-lang]");
+
+  function setLang(lang){
+    buttons.forEach(b => b.classList.toggle("active", b.dataset.setLang === lang));
+    blocks.forEach(el => el.classList.toggle("active", el.dataset.lang === lang));
+    document.documentElement.setAttribute("lang", lang === "zh" ? "zh-CN" : "en");
+  }
+  buttons.forEach(btn => btn.addEventListener("click", () => setLang(btn.dataset.setLang)));
+
+  // default lang
+  setLang("zh");
+</script>
+</body>
+</html>
